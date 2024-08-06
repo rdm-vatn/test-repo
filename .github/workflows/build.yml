@@ -1,0 +1,10 @@
+name: arm-build
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: apt-get install gcc-arm-none-eabi
+      - run: arm-none-eabi-gcc src/main.c

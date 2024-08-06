@@ -5,10 +5,11 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: checkout code
+        uses: actions/checkout@v4
       - name: install tools
-      - run: |
+        run: |
         sudo apt-get update
         sudo apt-get install -y gcc-arm-none-eabi
       - name: build code
-      - run: arm-none-eabi-gcc src/main.c --specs=nosys.specs
+        run: arm-none-eabi-gcc src/main.c --specs=nosys.specs
